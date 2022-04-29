@@ -1,5 +1,8 @@
 package patronBuilder;
 
+import java.util.ArrayList;
+import java.util.TreeSet;
+
 public class UsuarioBuilder {
 
 		private String email;
@@ -7,6 +10,7 @@ public class UsuarioBuilder {
 	    private String apellidos;
 	    private String telefono;
 	    private String direccion;
+	    private TreeSet<String> intereses;
 
 	    public UsuarioBuilder() {
 	    }
@@ -30,6 +34,23 @@ public class UsuarioBuilder {
 	    public UsuarioBuilder direccion(String direccion) {
 	        this.direccion = direccion;
 	        return this;
+	    }
+	    
+	    public UsuarioBuilder intereses(TreeSet<String> intereses) {
+	    	if(this.intereses == null) {
+	    		this.intereses = intereses;
+	    	}else{
+	    		this.intereses.addAll(intereses);
+	    	}
+	    	return this;
+	    }
+	    
+	    public UsuarioBuilder interes(String interes) {
+	    	if (this.intereses == null) {
+	    		this.intereses = new TreeSet<String>();
+	    	}
+	    	intereses.add(interes);
+	    	return this;
 	    }
 
 	    public Usuario build() {
@@ -55,6 +76,10 @@ public class UsuarioBuilder {
 	    
 	    public String getDireccion() {
 	        return direccion;
-	    };
+	    }
+
+		public TreeSet<String> getIntereses() {
+			return intereses;
+		};
 	
 }
