@@ -1,6 +1,7 @@
 package proyectoFuncionesLambda;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,18 +28,22 @@ public class Programa {
 		// cuando es sólo un parámetro no hacen falta paréntesis
 		lista.forEach( elemento -> System.out.println(elemento) );
 		
-		mapa.put("Polonia", "Varsovia");
-		mapa.put("Polonia", "Varsovia");
+		if (mapa.get("Polonia") == null) {
+			mapa.put("Polonia", "Varsovia");
+		}
 		
-		System.out.println(mapa.computeIfAbsent("Polonia", s -> "Varsovia" ));
+		mapa.computeIfAbsent("Polonia", s -> "Varsovia" );
 
 		HashMap<String, Integer> contador = new HashMap<String, Integer>();
 		
-		List<String> palabras = Arrays.asList("hola qué tal".split(" "));
+		String texto = "hola hola qué tal";
+		List<String> palabras = Arrays.asList(texto.split(" "));
 		palabras.forEach(palabra  -> {
-			contador.putIfAbsent(palabra, 0 );
-			contador.computeIfPresent(palabra, (p, i) -> i+1 );
+			contador.computeIfPresent(palabra,	(k, v) -> v+1);
+			contador.computeIfAbsent(palabra, 	k -> 1);
 		});
+		
+		Collections.sort(lista);
 		
 		System.out.println(contador);
 		
