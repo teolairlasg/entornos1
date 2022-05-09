@@ -22,17 +22,32 @@ class CalculadoraTest {
 
 	@Test
 	void testResta() {
-		fail("Not yet implemented");
+		Calculadora c = new Calculadora(4,5);
+		int resultado = c.resta();
+		assertEquals(-1, resultado);
+		//fail("Not yet implemented");
 	}
 
 	@Test
 	void testProducto() {
-		fail("Not yet implemented");
+		Calculadora c = new Calculadora(4,5);
+		int resultado = c.producto();
+		assertEquals(20, resultado);
+		//fail("Not yet implemented");
 	}
 
 	@Test
 	void testDivision() {
-		fail("Not yet implemented");
+		Calculadora c = new Calculadora(4,5);
+		double resultado = c.division();
+		assertEquals(0.8, resultado);
+		//fail("Not yet implemented");
+	}
+	
+	@Test
+	void testImprimirSuma() {
+		
+		
 	}
 
 }

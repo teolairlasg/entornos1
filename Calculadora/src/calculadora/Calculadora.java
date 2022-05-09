@@ -23,6 +23,6 @@ public class Calculadora {
 		return num1*num2;
 	}
 	public double division() {
-		return num1/num2;
+		return (double)(num1)/num2;
 	}
 }
