@@ -55,7 +55,6 @@ public class AccesoBD {
 						,bdProp);
 				System.out.println(conexion.getMetaData().getDatabaseMajorVersion());
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	}

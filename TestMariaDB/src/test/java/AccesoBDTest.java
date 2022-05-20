@@ -14,4 +14,13 @@ class AccesoBDTest {
 		assertTrue(abd.testConexion());
 		abd.desconectar();
 	}
+	@Test
+	void testConexionMala() {
+		AccesoBD abd = new AccesoBD(
+				"src/test/resources/bdPropertiesMalo.properties");
+		//TODO: gestión de excepciones
+		abd.conectar();
+		
+		abd.desconectar();
+	}
 }
