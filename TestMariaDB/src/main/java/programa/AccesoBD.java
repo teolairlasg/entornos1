@@ -19,6 +19,18 @@ public class AccesoBD {
 		super();
 		this.ficheroProperties = ficheroProperties;
 	}
+	
+	public boolean testConexion() {
+		boolean retorno = false;
+		try {
+			retorno = conexion.isValid(3);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return retorno;
+	}
+	
 	public void conectar() {
 		
 		Properties bdProp = new Properties();
@@ -35,20 +47,26 @@ public class AccesoBD {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}		
-		try {
+	
 			//System.out.println(bdProp.getProperty("user"));
-			conexion = DriverManager.getConnection(
-					"jdbc:mariadb://bd.iesguara.cf:3306/DAM1Test_Personas"
-					,bdProp);
-			System.out.println(conexion.getMetaData().getDatabaseMajorVersion());
+			try {
+				conexion = DriverManager.getConnection(
+						"jdbc:mariadb://bd.iesguara.cf:3306/DAM1Test_Personas"
+						,bdProp);
+				System.out.println(conexion.getMetaData().getDatabaseMajorVersion());
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+	public void desconectar() {
+		System.out.print("Intentando la desconexión...");
+		try {
+			conexion.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	public void desconectar() throws SQLException {
-		System.out.print("Intentando la desconexión...");
-		conexion.close();
 		System.out.println("Desconectado!");
 	}
 	

@@ -7,8 +7,11 @@ import programa.AccesoBD;
 class AccesoBDTest {
 
 	@Test
-	void testConexion() {
-		AccesoBD abd = new AccesoBD();
+	void testConexionBuena() {
+		AccesoBD abd = new AccesoBD(
+				"src/test/resources/bdProperties.properties");
+		abd.conectar();
+		assertTrue(abd.testConexion());
+		abd.desconectar();
 	}
-
 }
