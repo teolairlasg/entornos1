@@ -1,0 +1,11 @@
+Crear métodos de test que comprueben todos los métodos de la clase.
+
+El método testApuntar, debe comprobar que si añado un elemento que no existe el número de elementos se incrementa.
+
+El método testBorrar, debe comprobar que si borro un elemento que sí existe el número de elemntos se decrementa.
+
+El comprobar el método constructor comprobando que una lista nueva no tienen elementos.
+
+Hacer un testApuntarRepetido que compruebe que al apuntar dos veces el mismo elemento el número de elemntos no varía
+
+Hacer un testBorrarNoExistente que compruebe que al borrar un elemento que no existe el número de elementos no varía
